@@ -5,6 +5,7 @@ class TodoList:
 
     def add(self, item):
         self.list.append(item)
+        self.sort()
 
     def get(self, index):
         return self.list[index]
@@ -25,3 +26,10 @@ class TodoList:
         for item in self.list:
             if item.description == description:
                 return item
+
+    def sort(self):
+        self.list.sort()
+
+    def change_priority(self, index, new_priority):
+        self.list[index].change_priority(new_priority)
+        self.list.sort()
