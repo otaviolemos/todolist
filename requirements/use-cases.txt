@@ -1,0 +1,10 @@
+- sign up
+- sign in
+- create todo list
+- create item in todo list
+- show todo list
+- change item description
+- change item priority
+- remove item from todo list
+- mark item as done
+- remove todo list
