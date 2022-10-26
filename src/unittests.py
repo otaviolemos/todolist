@@ -22,7 +22,7 @@ def test_change_description():
     assert item.description == 'change bed'
 
 def test_one_todo_list():
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     item = TodoItem('make bed', Priority.LOW)
     list.add(item)
@@ -30,7 +30,7 @@ def test_one_todo_list():
     assert list.get_owner() == owner
 
 def test_complete_item_from_todo_list():
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     item = TodoItem('make bed', Priority.LOW)
     list.add(item)
@@ -38,7 +38,7 @@ def test_complete_item_from_todo_list():
     assert item.is_done() == True
 
 def test_remove_item_from_todo_list():
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     item = TodoItem('make bed', Priority.LOW)
     list.add(item)
@@ -46,7 +46,7 @@ def test_remove_item_from_todo_list():
     assert list.size() == 0
 
 def test_search_item_by_description():
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     item1 = TodoItem('make bed', Priority.LOW)
     item2 = TodoItem('withdraw cash', Priority.LOW)
@@ -58,7 +58,7 @@ def test_items_sorted_by_priority():
     item1 = TodoItem('make bed', Priority.LOW)
     item2 = TodoItem('withdraw cash', Priority.MEDIUM)
     item3 = TodoItem('call mom', Priority.HIGH)
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     list.add(item1)
     list.add(item2)
@@ -71,7 +71,7 @@ def test_change_priority_resorts():
     item1 = TodoItem('make bed', Priority.LOW)
     item2 = TodoItem('withdraw cash', Priority.MEDIUM)
     item3 = TodoItem('call mom', Priority.HIGH)
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     list.add(item1)
     list.add(item2)
@@ -85,7 +85,7 @@ def test_change_priority_resorts():
 def test_should_not_have_duplicated_item():
     item1 = TodoItem('make bed', Priority.LOW)
     item2 = TodoItem('make bed', Priority.HIGH)
-    owner = User('Joe Doe', 'joe@doe.com')
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     list.add(item1)
     with pytest.raises(DuplicatedItemError):
