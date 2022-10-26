@@ -82,11 +82,11 @@ def test_change_priority_resorts():
     assert list.get(1).description == item2.description
     assert list.get(2).description == item3.description
 
-# def test_should_not_have_duplicated_item():
-#     item1 = TodoItem('make bed', Priority.LOW)
-#     item2 = TodoItem('make bed', Priority.HIGH)
-#     owner = User('Joe Doe', 'joe@doe.com')
-#     list = TodoList(owner)
-#     list.add(item1)
-#     with pytest.raises(DuplicatedItemError):
-#         list.add(item2)
+def test_should_not_have_duplicated_item():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('make bed', Priority.HIGH)
+    owner = User('Joe Doe', 'joe@doe.com')
+    list = TodoList(owner)
+    list.add(item1)
+    with pytest.raises(DuplicatedItemError):
+        list.add(item2)
