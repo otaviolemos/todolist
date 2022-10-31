@@ -3,7 +3,7 @@ from user import User
 from todolist import TodoList
 from priority import Priority
 import pytest
-from duplicateditemerror import DuplicatedItemError
+from duplicateitemerror import DuplicateItemError
 
 def test_done():
     item = TodoItem('make bed', Priority.LOW)
@@ -88,5 +88,5 @@ def test_should_not_have_duplicated_item():
     owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
     list.add(item1)
-    with pytest.raises(DuplicatedItemError):
+    with pytest.raises(DuplicateItemError):
         list.add(item2)

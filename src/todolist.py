@@ -1,4 +1,4 @@
-from duplicateditemerror import DuplicatedItemError
+from duplicateitemerror import DuplicateItemError
 
 class TodoList:
     def __init__(self, owner):
@@ -7,7 +7,7 @@ class TodoList:
 
     def add(self, item):
         if self.find(item.description) != None:
-            raise DuplicatedItemError()
+            raise DuplicateItemError()
         self.list.append(item)
         self.sort()
 

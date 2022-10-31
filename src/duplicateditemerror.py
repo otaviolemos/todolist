@@ -1,2 +1,0 @@
-class DuplicatedItemError(Exception):
-    pass
