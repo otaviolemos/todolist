@@ -1,4 +1,8 @@
 - sign up
+ - happy path
+ - prevent duplicate user
+ - verify password strength
+
 - sign in
 - create todo list
 - create item in todo list
