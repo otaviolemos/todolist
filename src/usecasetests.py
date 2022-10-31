@@ -30,7 +30,7 @@ def test_prevent_duplicate_user():
 
 def test_hash_password():
     user_repo = InMemoryUserRepository()
-    hash_service = BcryptHashService(bcrypt.gensalt(14))
+    hash_service = FakeHashService()
     user_name = 'Joe Doe'
     user_email = 'joe@doe.com'
     user_password = 'test1234TEST&'
