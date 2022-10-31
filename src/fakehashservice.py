@@ -1,4 +1,6 @@
-class FakeHashService():
+from hashservice import HashService
+
+class FakeHashService(HashService):
     def __init__(self):
         pass
 

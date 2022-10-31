@@ -1,6 +1,7 @@
 import bcrypt
+from hashservice import HashService
 
-class BcryptHashService():
+class BcryptHashService(HashService):
     def __init__(self, salt):
         self.salt = salt
 
