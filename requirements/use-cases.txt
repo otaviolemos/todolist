@@ -1,6 +1,7 @@
 - sign up
  - happy path
  - prevent duplicate user
+ - hash password
  - verify password strength
 
 - sign in
