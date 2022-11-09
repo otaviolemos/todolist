@@ -3,6 +3,12 @@
  - prevent duplicate user
  - hash password
  - verify password strength
+   - should contain uppercase letter
+   - should contain lowercase letter
+   - should contain number
+   - should contain special character
+   - should contain at least six characters
+   - should contain at most fifteen characters
 
 - sign in
 - create todo list
