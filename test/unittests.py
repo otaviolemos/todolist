@@ -1,9 +1,9 @@
-from todoitem import TodoItem
-from user import User
-from todolist import TodoList
-from priority import Priority
+from src.entities.todoitem import TodoItem
+from src.entities.user import User
+from src.entities.todolist import TodoList
+from src.entities.priority import Priority
 import pytest
-from duplicateitemerror import DuplicateItemError
+from src.entities.errors.duplicateitemerror import DuplicateItemError
 
 def test_done():
     item = TodoItem('make bed', Priority.LOW)

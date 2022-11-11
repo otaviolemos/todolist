@@ -1,4 +1,4 @@
-from hashservice import HashService
+from src.usecases.ports.hashservice import HashService
 
 class FakeHashService(HashService):
     def __init__(self):

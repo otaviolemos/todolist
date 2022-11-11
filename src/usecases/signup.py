@@ -1,6 +1,6 @@
-from user import User
-from duplicateusererror import DuplicateUserError
-from invalidpassworderror import InvalidPasswordError
+from src.entities.user import User
+from src.usecases.errors.duplicateusererror import DuplicateUserError
+from src.usecases.errors.invalidpassworderror import InvalidPasswordError
 
 
 class SignUp:

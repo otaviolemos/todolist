@@ -1,4 +1,4 @@
-from userrepository import UserRepository
+from src.usecases.ports.userrepository import UserRepository
 
 class InMemoryUserRepository(UserRepository):
     def __init__(self):

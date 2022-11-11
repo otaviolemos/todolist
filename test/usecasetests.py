@@ -1,11 +1,11 @@
-from inmemoryuserrepository import InMemoryUserRepository
-from signup import SignUp
-from signin import SignIn
+from test.inmemoryuserrepository import InMemoryUserRepository
+from src.usecases.signup import SignUp
+from src.usecases.signin import SignIn
 import pytest
-from duplicateusererror import DuplicateUserError
-from invalidpassworderror import InvalidPasswordError
-from invalidcredentialserror import InvalidCredentialsError
-from fakehashservice import FakeHashService
+from src.usecases.errors.duplicateusererror import DuplicateUserError
+from src.usecases.errors.invalidpassworderror import InvalidPasswordError
+from src.usecases.errors.invalidcredentialserror import InvalidCredentialsError
+from test.fakehashservice import FakeHashService
 
 
 def test_signup_with_valid_data():

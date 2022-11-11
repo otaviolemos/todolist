@@ -1,5 +1,4 @@
-from invalidcredentialserror import InvalidCredentialsError
-
+from src.usecases.errors.invalidcredentialserror import InvalidCredentialsError
 
 class SignIn:
 
