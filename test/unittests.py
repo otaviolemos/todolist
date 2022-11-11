@@ -34,6 +34,7 @@ def test_complete_item_from_todo_list():
     list = TodoList(owner)
     item = TodoItem('make bed', Priority.LOW)
     list.add(item)
+    assert item.is_done() == False
     list.complete_item(0)
     assert item.is_done() == True
 
