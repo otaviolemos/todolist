@@ -17,5 +17,5 @@
 - change item description
 - change item priority
 - remove item from todo list
-- mark item as done
+- mark item as completed
 - remove todo list
