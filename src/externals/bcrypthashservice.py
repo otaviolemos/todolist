@@ -1,6 +1,7 @@
 import bcrypt
 from src.usecases.ports.hashservice import HashService
 
+
 class BcryptHashService(HashService):
     def __init__(self, salt):
         self.salt = salt
@@ -10,4 +11,3 @@ class BcryptHashService(HashService):
 
     def check(self, password, hashed):
         return bcrypt.checkpw(password.encode('utf-8'), hashed)
-    

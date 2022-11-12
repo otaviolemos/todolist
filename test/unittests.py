@@ -8,13 +8,13 @@ from src.entities.errors.duplicateitemerror import DuplicateItemError
 def test_done():
     item = TodoItem('make bed', Priority.LOW)
     item.complete()
-    assert item.is_done() == True
+    assert item.is_completed() == True
 
 def test_undone():
     item = TodoItem('make bed', Priority.LOW)
     item.complete()
     item.undo()
-    assert item.is_done() == False
+    assert item.is_completed() == False
 
 def test_change_description():
     item = TodoItem('make bed', Priority.LOW)
@@ -34,9 +34,9 @@ def test_complete_item_from_todo_list():
     list = TodoList(owner)
     item = TodoItem('make bed', Priority.LOW)
     list.add(item)
-    assert item.is_done() == False
-    list.complete_item(0)
-    assert item.is_done() == True
+    assert item.is_completed() == False
+    list.complete(0)
+    assert item.is_completed() == True
 
 def test_remove_item_from_todo_list():
     owner = User('Joe Doe', 'joe@doe.com', '1234')

@@ -1,20 +1,20 @@
 class TodoItem:
     def __init__(self, description, priority):
         self.description = description
-        self.done = False
+        self.completed = False
         self.priority = priority
 
     def __lt__(self, other):
         return self.priority.value < other.priority.value
 
     def complete(self):
-        self.done = True
+        self.completed = True
 
-    def is_done(self):
-        return self.done
+    def is_completed(self):
+        return self.completed
 
     def undo(self):
-        self.done = False
+        self.completed = False
 
     def change_description(self, new_description):
         self.description = new_description

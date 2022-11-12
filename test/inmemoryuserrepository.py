@@ -1,5 +1,6 @@
 from src.usecases.ports.userrepository import UserRepository
 
+
 class InMemoryUserRepository(UserRepository):
     def __init__(self):
         self.users = []
