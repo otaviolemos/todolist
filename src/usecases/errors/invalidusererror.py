@@ -1,0 +1,2 @@
+class InvalidUserError(Exception):
+    pass

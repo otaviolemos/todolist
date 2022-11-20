@@ -11,11 +11,16 @@
    - should contain at most fifteen characters
 
 - sign in
+
 - create todo list
-- create item in todo list
+  - happy path
+  - handle invalid user
+  - prevent duplicate todolist
+
+- create todo item
 - show todo list
 - change item description
 - change item priority
 - remove item from todo list
-- mark item as completed
+- mark item as done
 - remove todo list
