@@ -18,9 +18,18 @@
   - prevent duplicate todolist
 
 - create todo item
+  - happy path
+  - handle invalid user
+  - prevent duplicate todoitem
+
 - show todo list
+  - happy path
+  - handle invalid user
+
 - change item description
 - change item priority
 - remove item from todo list
 - mark item as done
+  - should push item to the end of the list
+
 - remove todo list
