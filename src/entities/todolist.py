@@ -19,6 +19,13 @@ class TodoList:
 
     def complete(self, index):
         self.list[index].complete()
+        self.sort()
+
+    def complete_by_description(self, description):
+        item = self.find(description)
+        if item:
+            item.complete()
+            self.sort()
 
     def remove(self, index):
         self.list.pop(index)
