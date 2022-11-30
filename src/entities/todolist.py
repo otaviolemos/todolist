@@ -7,8 +7,7 @@ class TodoList:
         self.list = []
 
     def add(self, item):
-        if self.find(item.description) != None:
-            raise DuplicateItemError()
+        self.check_duplicate(item.description)
         self.list.append(item)
         self.sort()
 
@@ -40,9 +39,12 @@ class TodoList:
         self.list.sort()
 
     def change_description(self, old_description, new_description):
-        duplicate_item = self.find(new_description)
-        if duplicate_item:
-            raise DuplicateItemError()
+        self.check_duplicate(new_description)
         item = self.find(old_description)
         if item:
             item.change_description(new_description)
+
+    def check_duplicate(self, description):
+        duplicate_item = self.find(description)
+        if duplicate_item:
+            raise DuplicateItemError()
