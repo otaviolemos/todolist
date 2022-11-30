@@ -104,3 +104,15 @@ def test_change_item_description_from_todolist():
     list.change_description('make bed', 'clean bedroom')
     assert list.find('clean bedroom') != None
     assert list.find('make bed') == None
+
+def test_change_item_description_from_todolist_duplicate():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('withdraw cash', Priority.MEDIUM)
+    item3 = TodoItem('call mom', Priority.HIGH)
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    list = TodoList(owner)
+    list.add(item1)
+    list.add(item2)
+    list.add(item3)
+    with pytest.raises(DuplicateItemError):
+        list.change_description('make bed', 'call mom')
