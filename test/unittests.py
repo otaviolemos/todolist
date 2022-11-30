@@ -116,3 +116,41 @@ def test_change_item_description_from_todolist_duplicate():
     list.add(item3)
     with pytest.raises(DuplicateItemError):
         list.change_description('make bed', 'call mom')
+
+def test_complete_item_from_todo_list():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('withdraw cash', Priority.MEDIUM)
+    item3 = TodoItem('call mom', Priority.HIGH)
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    list = TodoList(owner)
+    list.add(item1)
+    list.add(item2)
+    list.add(item3)
+    list.complete_by_description('make bed')
+    assert item1.is_completed() == True
+
+def test_complete_item_from_todo_list_reorder():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('withdraw cash', Priority.MEDIUM)
+    item3 = TodoItem('call mom', Priority.HIGH)
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    todolist = TodoList(owner)
+    todolist.add(item1)
+    todolist.add(item2)
+    todolist.add(item3)
+    todolist.complete_by_description('call mom')
+    assert item3.is_completed() == True
+    assert todolist.list[2] == item3
+
+def test_complete_item_from_todo_list_reorder():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('withdraw cash', Priority.MEDIUM)
+    item3 = TodoItem('call mom', Priority.HIGH)
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    todolist = TodoList(owner)
+    todolist.add(item1)
+    todolist.add(item2)
+    todolist.add(item3)
+    todolist.complete(0)
+    assert item3.is_completed() == True
+    assert todolist.list[2] == item3
