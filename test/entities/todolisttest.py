@@ -5,22 +5,6 @@ from src.entities.priority import Priority
 import pytest
 from src.entities.errors.duplicateitemerror import DuplicateItemError
 
-def test_done():
-    item = TodoItem('make bed', Priority.LOW)
-    item.complete()
-    assert item.is_completed() == True
-
-def test_undone():
-    item = TodoItem('make bed', Priority.LOW)
-    item.complete()
-    item.undo()
-    assert item.is_completed() == False
-
-def test_change_description():
-    item = TodoItem('make bed', Priority.LOW)
-    item.change_description('change bed')
-    assert item.description == 'change bed'
-
 def test_one_todo_list():
     owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)

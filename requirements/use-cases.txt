@@ -27,8 +27,12 @@
   - handle invalid user
 
 - change item description
+  - happy path
+  - handle duplicate item
+
 - change item priority
 - remove item from todo list
+
 - mark item as done
   - should push item to the end of the list
 
