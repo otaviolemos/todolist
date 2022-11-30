@@ -40,6 +40,9 @@ class TodoList:
         self.list.sort()
 
     def change_description(self, old_description, new_description):
+        duplicate_item = self.find(new_description)
+        if duplicate_item:
+            raise DuplicateItemError()
         item = self.find(old_description)
         if item:
             item.change_description(new_description)
