@@ -38,3 +38,8 @@ class TodoList:
     def change_priority(self, index, new_priority):
         self.list[index].change_priority(new_priority)
         self.list.sort()
+
+    def change_description(self, old_description, new_description):
+        item = self.find(old_description)
+        if item:
+            item.change_description(new_description)
