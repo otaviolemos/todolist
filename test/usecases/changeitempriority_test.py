@@ -1,3 +1,4 @@
+import pytest
 from src.entities.priority import Priority
 from test.usecases.fakehashservice import FakeHashService
 from test.usecases.inmemorytodolistrepository import InMemoryTodoListRepository
@@ -6,6 +7,7 @@ from src.usecases.createtodoitem import CreateTodoItem
 from src.usecases.createtodolist import CreateTodoList
 from src.usecases.signup import SignUp
 from src.usecases.changeitempriority import ChangeItemPriority
+from src.usecases.errors.invalidusererror import InvalidUserError
 
 
 def test_change_item_priority():
@@ -26,3 +28,12 @@ def test_change_item_priority():
     persisted_todo_list = todolist_repo.find_by_email(user_email)
     assert persisted_todo_list.size() == 1
     assert persisted_todo_list.get(0).priority == new_priority
+
+def test_change_item_priority_with_invalid_user():
+    todolist_repo = InMemoryTodoListRepository()
+    user_email = 'invalid@user.com'
+    item_description = 'call mom'
+    new_priority = Priority.HIGH
+    usecase = ChangeItemPriority(todolist_repo)
+    with pytest.raises(InvalidUserError):
+      usecase.perform(user_email, item_description, new_priority)
