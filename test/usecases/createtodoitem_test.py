@@ -30,6 +30,16 @@ def test_create_item_in_todo_list():
     assert persisted_todo_list.size() == 1
     assert persisted_todo_list.get(0).description == item_description
 
+def test_create_item_in_todo_list_with_invalid_user():
+    user_repo = InMemoryUserRepository()
+    todolist_repo = InMemoryTodoListRepository()
+    user_email = 'invalid@user.com'
+    usecase = CreateTodoItem(user_repo, todolist_repo)
+    item_description = 'call mom'
+    item_priority = 0
+    with pytest.raises(InvalidUserError):
+        usecase.perform(user_email, item_description, item_priority)
+
 def test_create_duplicate_item_in_todo_list():
     user_repo = InMemoryUserRepository()
     todolist_repo = InMemoryTodoListRepository()
