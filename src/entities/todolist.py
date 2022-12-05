@@ -41,7 +41,7 @@ class TodoList:
     def sort(self):
         self.list.sort()
 
-    def change_priority(self, index, new_priority):
+    def change_priority_by_index(self, index, new_priority):
         self.list[index].change_priority(new_priority)
         self.list.sort()
 

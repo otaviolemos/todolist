@@ -61,8 +61,8 @@ def test_change_priority_by_index():
     list.add(item1)
     list.add(item2)
     list.add(item3)
-    list.change_priority(0, Priority.LOW)
-    list.change_priority(2, Priority.HIGH)
+    list.change_priority_by_index(0, Priority.LOW)
+    list.change_priority_by_index(2, Priority.HIGH)
     assert list.get(0).description == item1.description
     assert list.get(1).description == item2.description
     assert list.get(2).description == item3.description
