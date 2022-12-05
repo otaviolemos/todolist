@@ -52,7 +52,7 @@ def test_items_sorted_by_priority():
     assert list.get(1).description == item2.description
     assert list.get(2).description == item1.description
 
-def test_change_priority_resorts():
+def test_change_priority_by_index():
     item1 = TodoItem('make bed', Priority.LOW)
     item2 = TodoItem('withdraw cash', Priority.MEDIUM)
     item3 = TodoItem('call mom', Priority.HIGH)
@@ -66,6 +66,19 @@ def test_change_priority_resorts():
     assert list.get(0).description == item1.description
     assert list.get(1).description == item2.description
     assert list.get(2).description == item3.description
+
+def test_change_priority_by_description():
+    item1 = TodoItem('make bed', Priority.LOW)
+    item2 = TodoItem('withdraw cash', Priority.MEDIUM)
+    item3 = TodoItem('call mom', Priority.MEDIUM)
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    list = TodoList(owner)
+    list.add(item1)
+    list.add(item2)
+    list.add(item3)
+    list.change_priority_by_description('make bed', Priority.HIGH)
+    assert item1.priority == Priority.HIGH
+    assert list.list[0] == item1
 
 def test_should_not_have_duplicated_item():
     item1 = TodoItem('make bed', Priority.LOW)
