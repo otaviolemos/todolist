@@ -3,7 +3,6 @@ from src.entities.priority import Priority
 from test.usecases.fakehashservice import FakeHashService
 from test.usecases.inmemorytodolistrepository import InMemoryTodoListRepository
 from test.usecases.inmemoryuserrepository import InMemoryUserRepository
-from src.usecases.changeitemdescription import ChangeItemDescription
 from src.usecases.createtodoitem import CreateTodoItem
 from src.usecases.createtodolist import CreateTodoList
 from src.usecases.signup import SignUp
