@@ -25,7 +25,6 @@ def test_succesful_todolist_retrieval():
     assert todolist_repo.find_by_email(user_email) != None
 
 def test_succesful_todolist_retrieval():
-    user_repo = InMemoryUserRepository()
     todolist_repo = InMemoryTodoListRepository()
     user_email = 'invalid@user.com'
     usecase = GetTodoList(todolist_repo)
