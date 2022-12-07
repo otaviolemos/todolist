@@ -2,8 +2,7 @@ from src.entities.todoitem import TodoItem
 from src.usecases.errors.invalidusererror import InvalidUserError
 
 class CreateTodoItem:
-    def __init__(self, user_repo, todolist_repo):
-      self.user_repo = user_repo
+    def __init__(self, todolist_repo):
       self.todolist_repo = todolist_repo
 
     def perform(self, user_email, item_description, item_priority):
