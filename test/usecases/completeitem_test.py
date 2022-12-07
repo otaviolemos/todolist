@@ -1,3 +1,4 @@
+import pytest
 from test.usecases.fakehashservice import FakeHashService
 from test.usecases.inmemorytodolistrepository import InMemoryTodoListRepository
 from test.usecases.inmemoryuserrepository import InMemoryUserRepository
@@ -5,6 +6,7 @@ from src.usecases.createtodoitem import CreateTodoItem
 from src.usecases.createtodolist import CreateTodoList
 from src.usecases.signup import SignUp
 from src.usecases.completetodoitem import CompleteTodoItem
+from src.usecases.errors.invalidusererror import InvalidUserError
 
 
 def test_complete_item_in_todo_list():
@@ -25,3 +27,11 @@ def test_complete_item_in_todo_list():
     assert persisted_todo_list.size() == 1
     assert persisted_todo_list.get(0).description == item_description
     assert persisted_todo_list.get(0).completed
+
+def test_complete_item_invalid_user():
+    todolist_repo = InMemoryTodoListRepository()
+    user_email = 'invalid@user.com'
+    item_description = 'call mom'
+    usecase = CompleteTodoItem(todolist_repo)
+    with pytest.raises(InvalidUserError):
+        usecase.perform(user_email, item_description)
