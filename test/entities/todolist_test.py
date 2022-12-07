@@ -30,6 +30,14 @@ def test_remove_item_from_todo_list():
     list.remove(0)
     assert list.size() == 0
 
+def test_remove_item_by_description():
+    owner = User('Joe Doe', 'joe@doe.com', '1234')
+    list = TodoList(owner)
+    item = TodoItem('make bed', Priority.LOW)
+    list.add(item)
+    list.remove_by_description(item.description)
+    assert list.size() == 0
+
 def test_search_item_by_description():
     owner = User('Joe Doe', 'joe@doe.com', '1234')
     list = TodoList(owner)
