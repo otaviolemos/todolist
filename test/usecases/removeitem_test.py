@@ -1,3 +1,4 @@
+import pytest
 from test.usecases.fakehashservice import FakeHashService
 from test.usecases.inmemorytodolistrepository import InMemoryTodoListRepository
 from test.usecases.inmemoryuserrepository import InMemoryUserRepository
@@ -5,6 +6,7 @@ from src.usecases.signup import SignUp
 from src.usecases.createtodolist import CreateTodoList
 from src.usecases.createtodoitem import CreateTodoItem
 from src.usecases.removeitem import RemoveItem
+from src.usecases.errors.invalidusererror import InvalidUserError
 
 
 def test_remove_item():
@@ -23,3 +25,11 @@ def test_remove_item():
     usecase.perform(user_email, item_description)
     persisted_todo_list = todolist_repo.find_by_email(user_email)
     assert persisted_todo_list.size() == 0
+
+def test_remove_item_invalid_user():
+    todolist_repo = InMemoryTodoListRepository()
+    user_email = 'invalid@user.com'
+    item_description = 'call mom'
+    usecase = RemoveItem(todolist_repo)
+    with pytest.raises(InvalidUserError):
+        usecase.perform(user_email, item_description)
