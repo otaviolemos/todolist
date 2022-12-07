@@ -32,6 +32,8 @@
 
 - change item priority
 - remove item from todo list
+  - happy path
+  - handle invalid user
 
 - mark item as done
   - should push item to the end of the list
