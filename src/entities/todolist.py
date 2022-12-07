@@ -30,6 +30,13 @@ class TodoList:
     def remove(self, index):
         self.list.pop(index)
 
+    def remove_by_description(self, description):
+        list_size = len(self.list)
+        for index in range(list_size):
+            if self.list[index].description == description:
+                self.remove(index)
+                return
+
     def size(self):
         return len(self.list)
 
