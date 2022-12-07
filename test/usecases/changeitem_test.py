@@ -21,7 +21,7 @@ def test_change_item_description():
     item_priority = 0
     SignUp(user_repo, hash_service).perform(user_name, user_email, user_password)
     CreateTodoList(user_repo, todolist_repo).perform(user_email)
-    CreateTodoItem(user_repo, todolist_repo).perform(user_email, item_description, item_priority)
+    CreateTodoItem(todolist_repo).perform(user_email, item_description, item_priority)
     new_description = 'call dad'
     usecase = ChangeItem(todolist_repo)
     usecase.perform(user_email, item_description, ChangeType.DESCRIPTION, new_description)
@@ -49,7 +49,7 @@ def test_change_item_priority():
     item_priority = Priority.LOW
     SignUp(user_repo, hash_service).perform(user_name, user_email, user_password)
     CreateTodoList(user_repo, todolist_repo).perform(user_email)
-    CreateTodoItem(user_repo, todolist_repo).perform(user_email, item_description, item_priority)
+    CreateTodoItem(todolist_repo).perform(user_email, item_description, item_priority)
     new_priority = Priority.MEDIUM
     usecase = ChangeItem(todolist_repo)
     usecase.perform(user_email, item_description, ChangeType.PRIORITY, new_priority)

@@ -22,7 +22,7 @@ def test_create_item_in_todo_list():
     user_password = 'test1234TEST&'
     SignUp(user_repo, hash_service).perform(user_name, user_email, user_password)
     CreateTodoList(user_repo, todolist_repo).perform(user_email)
-    usecase = CreateTodoItem(user_repo, todolist_repo)
+    usecase = CreateTodoItem(todolist_repo)
     item_description = 'call mom'
     item_priority = 0
     usecase.perform(user_email, item_description, item_priority)
@@ -34,7 +34,7 @@ def test_create_item_in_todo_list_with_invalid_user():
     user_repo = InMemoryUserRepository()
     todolist_repo = InMemoryTodoListRepository()
     user_email = 'invalid@user.com'
-    usecase = CreateTodoItem(user_repo, todolist_repo)
+    usecase = CreateTodoItem(todolist_repo)
     item_description = 'call mom'
     item_priority = 0
     with pytest.raises(InvalidUserError):
@@ -49,7 +49,7 @@ def test_create_duplicate_item_in_todo_list():
     user_password = 'test1234TEST&'
     SignUp(user_repo, hash_service).perform(user_name, user_email, user_password)
     CreateTodoList(user_repo, todolist_repo).perform(user_email)
-    usecase = CreateTodoItem(user_repo, todolist_repo)
+    usecase = CreateTodoItem(todolist_repo)
     item_description = 'call mom'
     item_priority = 0
     usecase.perform(user_email, item_description, item_priority)
