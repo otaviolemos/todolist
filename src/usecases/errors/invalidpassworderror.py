@@ -1,2 +1,4 @@
 class InvalidPasswordError(Exception):
-  pass
+        def __init__(self):
+            message = 'Invalid password.'
+            super().__init__(message)
