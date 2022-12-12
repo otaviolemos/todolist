@@ -1,0 +1,15 @@
+- signup endpoint
+  -> url: /api/users
+  -> method: POST
+  -> body: 
+  {
+    "name": "Joe Doe",
+    "email": "joe@doe.com",
+    "password": "test1234TEST&"
+  }
+  -> response: 
+  status_code: 201
+  {
+    "name": "Joe Doe",
+    "email": "joe@doe.com"
+  }
