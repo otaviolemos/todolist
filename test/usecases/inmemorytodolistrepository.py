@@ -18,3 +18,9 @@ class InMemoryTodoListRepository(TodoListRepository):
         for index in range(len(self.todolists)):
           if self.todolists[index].owner.email == user_email:
             self.todolists[index] = newtodolist
+
+    def remove(self, user_email):
+        for index in range(len(self.todolists)):
+          if self.todolists[index].owner.email == user_email:
+            del self.todolists[index]
+            break
