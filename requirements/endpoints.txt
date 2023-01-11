@@ -13,3 +13,14 @@
     "name": "Joe Doe",
     "email": "joe@doe.com"
   }
+
+- signin endpoint
+  -> url: /api/users/signin
+  -> method: POST
+  -> body: 
+  {
+    "email": "joe@doe.com",
+    "password": "test1234TEST&"
+  }
+  -> response:
+  status_code: 200
